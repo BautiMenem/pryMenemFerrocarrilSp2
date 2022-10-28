@@ -30,9 +30,7 @@ namespace pryMenemFerrocarrilSp2
 
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
-            Precio = Convert.ToInt32(txtDistancia.Text) * 5;
-
-            txtPrecio.Text = Precio.ToString();
+            
 
         }
 
@@ -51,7 +49,28 @@ namespace pryMenemFerrocarrilSp2
 
         private void txtDistancia_TextChanged(object sender, EventArgs e)
         {
-            Distancia = Convert.ToInt32(txtDistancia.Text);
+           string ComprueboDistancia = txtDistancia.Text.Trim();
+            if (ComprueboDistancia.Length > 0)
+            {
+                int distancia = Convert.ToInt32(txtDistancia.Text.Trim());
+                if (distancia > 0)
+                {
+                    if (Convert.ToInt32(nudDias.Value) >= 7 && distancia >= 100)
+                    {
+                        lblPrecioT.Text = Convert.ToString(2.50 * distancia);
+                        lblNumeroT.Text = "$ 2,5";
+                    }
+                    else
+                    {
+                        lblPrecioT.Text = Convert.ToString(5 * distancia);
+                        lblNumeroT.Text = "$ 5";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese distancia", "Atención", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)

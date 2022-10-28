@@ -32,12 +32,12 @@
             this.lblDistancia = new System.Windows.Forms.Label();
             this.txtDistancia = new System.Windows.Forms.TextBox();
             this.mrcCosto = new System.Windows.Forms.GroupBox();
-            this.lblKm = new System.Windows.Forms.Label();
-            this.lblPrecio = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.TxtTotal = new System.Windows.Forms.TextBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.lblKm = new System.Windows.Forms.Label();
             this.nudDias = new System.Windows.Forms.NumericUpDown();
+            this.lblPrecioT = new System.Windows.Forms.Label();
+            this.lblNumeroT = new System.Windows.Forms.Label();
             this.mrcCosto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDias)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,7 @@
             // txtDistancia
             // 
             this.txtDistancia.Location = new System.Drawing.Point(166, 101);
+            this.txtDistancia.MaxLength = 5;
             this.txtDistancia.Name = "txtDistancia";
             this.txtDistancia.Size = new System.Drawing.Size(74, 20);
             this.txtDistancia.TabIndex = 3;
@@ -71,8 +72,8 @@
             // 
             // mrcCosto
             // 
-            this.mrcCosto.Controls.Add(this.TxtTotal);
-            this.mrcCosto.Controls.Add(this.txtPrecio);
+            this.mrcCosto.Controls.Add(this.lblNumeroT);
+            this.mrcCosto.Controls.Add(this.lblPrecioT);
             this.mrcCosto.Controls.Add(this.lblTotal);
             this.mrcCosto.Controls.Add(this.lblPrecio);
             this.mrcCosto.Location = new System.Drawing.Point(67, 159);
@@ -81,25 +82,6 @@
             this.mrcCosto.TabIndex = 4;
             this.mrcCosto.TabStop = false;
             this.mrcCosto.Text = "Costo";
-            // 
-            // lblKm
-            // 
-            this.lblKm.AutoSize = true;
-            this.lblKm.Location = new System.Drawing.Point(246, 104);
-            this.lblKm.Name = "lblKm";
-            this.lblKm.Size = new System.Drawing.Size(22, 13);
-            this.lblKm.TabIndex = 5;
-            this.lblKm.Text = "Km";
-            this.lblKm.Click += new System.EventHandler(this.lblKm_Click);
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(14, 34);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(55, 13);
-            this.lblPrecio.TabIndex = 0;
-            this.lblPrecio.Text = "Precio Km";
             // 
             // lblTotal
             // 
@@ -110,20 +92,24 @@
             this.lblTotal.TabIndex = 1;
             this.lblTotal.Text = "Total";
             // 
-            // txtPrecio
+            // lblPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(99, 31);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(74, 20);
-            this.txtPrecio.TabIndex = 2;
-            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Location = new System.Drawing.Point(14, 34);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(55, 13);
+            this.lblPrecio.TabIndex = 0;
+            this.lblPrecio.Text = "Precio Km";
             // 
-            // TxtTotal
+            // lblKm
             // 
-            this.TxtTotal.Location = new System.Drawing.Point(99, 61);
-            this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.Size = new System.Drawing.Size(74, 20);
-            this.TxtTotal.TabIndex = 3;
+            this.lblKm.AutoSize = true;
+            this.lblKm.Location = new System.Drawing.Point(246, 104);
+            this.lblKm.Name = "lblKm";
+            this.lblKm.Size = new System.Drawing.Size(22, 13);
+            this.lblKm.TabIndex = 5;
+            this.lblKm.Text = "Km";
+            this.lblKm.Click += new System.EventHandler(this.lblKm_Click);
             // 
             // nudDias
             // 
@@ -148,6 +134,22 @@
             0});
             this.nudDias.ValueChanged += new System.EventHandler(this.nudDias_ValueChanged);
             // 
+            // lblPrecioT
+            // 
+            this.lblPrecioT.AutoSize = true;
+            this.lblPrecioT.Location = new System.Drawing.Point(130, 68);
+            this.lblPrecioT.Name = "lblPrecioT";
+            this.lblPrecioT.Size = new System.Drawing.Size(0, 13);
+            this.lblPrecioT.TabIndex = 2;
+            // 
+            // lblNumeroT
+            // 
+            this.lblNumeroT.AutoSize = true;
+            this.lblNumeroT.Location = new System.Drawing.Point(130, 34);
+            this.lblNumeroT.Name = "lblNumeroT";
+            this.lblNumeroT.Size = new System.Drawing.Size(0, 13);
+            this.lblNumeroT.TabIndex = 3;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,6 +164,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ferrocarril - Calculo";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.mrcCosto.ResumeLayout(false);
@@ -181,9 +184,9 @@
         private System.Windows.Forms.Label lblKm;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.TextBox TxtTotal;
-        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.NumericUpDown nudDias;
+        private System.Windows.Forms.Label lblPrecioT;
+        private System.Windows.Forms.Label lblNumeroT;
     }
 }
 
